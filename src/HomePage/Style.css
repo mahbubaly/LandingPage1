@@ -58,7 +58,14 @@ body {
 }
 
 
-
+.full-back {
+    background: black;
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+  
+  }
 
 .playBtn {
 
@@ -581,6 +588,20 @@ body {
         position: relative;
         top: -120px;
         z-index: 0;
+    }
+
+    .bg_apart_shadow {
+
+        width: auto;
+        padding: 20px;
+        position: relative;
+        top: -142px;
+
+
+        border-radius: 10px;
+        background: rgba(82, 82, 82, 0.90);
+        backdrop-filter: blur(3px);
+
     }
 
 

@@ -39,6 +39,14 @@ import icon5 from '../assets/Image/icon5.png'
 import groupImgBanner from '../assets/Image/groupImgBanner.png'
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+import { Navigation } from 'swiper/modules';
+
+
+
 
 const Homepage = () => {
 
@@ -64,32 +72,40 @@ const Homepage = () => {
 
 
 
-                    <div className={`block lg:hidden   absolute lg:static lg:w-auto top-0 left-0 overflow-hidden h-full lg:h-auto duration-500 full-back   lg:bg-[transparent] lg:p-0 z-50 ${open ? "w-full  p-5" : "w-0"}`}>
+                    <div className={`block lg:hidden bg-red-600  absolute lg:static lg:w-auto top-0 left-0 overflow-hidden h-[600px]   duration-500 full-back   lg:bg-[transparent] lg:p-0 z-50 ${open ? "w-full   p-[30px]" : "w-0"}`}>
 
 
-                        <ul className='    '>
 
-                            <div className="text-[#999]  ">
-                                <button className="custom-btn btn-1"><span>Home</span></button>
-                                <button className="custom-btn btn-2"><span>About</span></button>
-                                <button className="custom-btn btn-3"><span>Contact Us</span></button>
-                                <button className="custom-btn btn-4"><span>Blog</span></button>
-                                <button className="custom-btn btn-5"><span>Page</span></button>
+                        <div className='flex justify-between'>
+
+                            <div>
+                                <div className="text-[#999] flex flex-col ">
+                                    <button className="custom-btn btn-1"><span>Home</span></button>
+                                    <button className="custom-btn btn-2"><span>About</span></button>
+                                    <button className="custom-btn btn-3"><span>Contact Us</span></button>
+                                    <button className="custom-btn btn-4"><span>Blog</span></button>
+                                    <button className="custom-btn btn-5"><span>Page</span></button>
+
+                                    <button className="w-[153px] mt-[15px]  text-[#000] h-[48px] font-semibold  btn_primary mr_right">
+                                        Lets Connect
+                                    </button>
+
+
+
+                                </div>
 
 
 
                             </div>
 
-
-                            <button className="w-[162px]  text-[#000] h-[52px] font-semibold  btn_primary mr_right">
-                                Lets Connect
-                            </button>
+                            <FaTimes onClick={() => setOpen(!open)} className='w-[24px] h-[24px] text-[#FFFFFF]' />
+                        </div>
 
 
 
-                        </ul>
 
-                        <FaTimes onClick={() => setOpen(!open)} className='w-[24px] h-[24px] text-[#FFFFFF]' />
+
+
                     </div>
 
 
@@ -112,7 +128,7 @@ const Homepage = () => {
             </header>
 
             <main>
-                <div className="container  lg:flex justify-between mx-auto lg:mt-[120px] ">
+                <div className="container  lg:flex justify-between mx-auto mt-[40px] lg:mt-[120px] ">
 
                     <div className="lg:w-[564px] w-[320px] absolute ">
                         <h3 className="text-[#B0F403] text-lg font-normal">make your dream with us</h3>
@@ -141,7 +157,8 @@ const Homepage = () => {
 
                             <div className="w-[192px] lg:w-[256px] flex items-center gap-[12px]  border-red-400">
                                 <button className="playBtn ">
-                                    <img src={watchVideo} className="w-[20px] h-[20px] lg:w-[24px]  lg:h-[24px] mx-auto cursor-pointer" alt="" />
+                                    <img src={watchVideo} className="w-[20px] h-[20px] lg:w-[24px]   
+                                    lg:h-[24px] ml-[5px] cursor-pointer" alt="" />
                                 </button>
                                 <p className="text-[14px] lg:text-[20px] font-medium cursor-pointer  text-[#fff]">Watch video</p>
 
@@ -499,9 +516,9 @@ const Homepage = () => {
 
 
             <section className="container mx-auto mt-[50px] lg:mt-[60px]">
-                <div className="lg:flex gap-[30px] justify-center">
+                <div className="lg:flex 2xl:grid justify-center grid-cols-3 gap-[30px] ">
                     <div >
-                        <img src={imgP1} className="w-[353px]  lg:w-[370px]" alt="" />
+                        <img src={imgP1} className="w-[353px]  lg:w-[370px] 2xl:w-auto" alt="" />
                         <div className="bg_apart_shadow ">
                             <h1 className="text-[24px] font-semibold text-[#fff] ">Apart design app</h1>
                             <div className="mt-[6px] flex gap-5 items-center">
@@ -513,7 +530,7 @@ const Homepage = () => {
                         </div>
                     </div>
                     <div className='img2BG'>
-                        <img src={imgP2} className="w-[353px] lg:w-[370px]" alt="" />
+                        <img src={imgP2} className="w-[353px] lg:w-[370px] 2xl:w-auto" alt="" />
                         <div className="bg_apart_shadow ">
                             <h1 className="text-[24px] font-semibold text-[#fff] ">Financial Service app</h1>
                             <div className="mt-[6px] flex gap-5 items-center">
@@ -526,7 +543,7 @@ const Homepage = () => {
                     </div>
                     <div className='img3BG'>
                         <div className=''>
-                            <img src={imgP3} className="w-[353px] lg:w-[370px]" alt="" />
+                            <img src={imgP3} className="w-[353px] lg:w-[370px] 2xl:w-auto" alt="" />
                             <div className="bg_apart_shadow ">
                                 <h1 className="text-[24px] font-semibold text-[#fff] ">Financial Service app</h1>
                                 <div className="mt-[6px] flex gap-5 items-center">
@@ -562,341 +579,421 @@ const Homepage = () => {
 
             {/* carousel */}
 
-            <div className='container mx-auto lg:static relative -top-[220px]'>
-                <div className="carousel w-full lg:mt-[80px]">
-
-                    <div id="slide1" className="carousel-item relative w-full">
-
-                        <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
-
-                            {/* laptop */}
-                            <div className="lg:flex gap-[28px]  h-[290px] hidden">
-
-                                <img src={client1} className=" lg:w-[224px]  " alt="" />
 
 
 
 
-                                <div className="w-[438px]  mt-[20px]">
-                                    <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
-                                    <p className="text-[#fff] ">CEO at ABC Company</p>
+            <div className='lg:mt-[50px] lg:static relative -top-[220px] container mx-auto'>
 
-                                    <div className="flex justify-end relative -top-[10px]">
-                                        <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                <Swiper
+                    spaceBetween={400}
+
+
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+
+                        },
+                        768: {
+                            slidesPerView: 2,
+
+                        },
+                        1024: {
+                            slidesPerView: 2,
+
+                        },
+                        1280: {
+                            slidesPerView: 2,
+
+                        },
+                    }}
+
+
+
+                    navigation={true} modules={[Navigation]} className="mySwiper">
+                    <SwiperSlide>
+
+
+                        <div className=" lg:w-[750px]">
+
+                            <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
+
+                                {/* laptop */}
+                                <div className="lg:flex gap-[28px]  h-[290px] hidden">
+
+                                    <img src={client1} className=" lg:w-[224px]  " alt="" />
+
+
+
+
+                                    <div className="w-[438px]  mt-[20px]">
+                                        <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
+                                        <p className="text-[#fff] ">CEO at ABC Company</p>
+
+                                        <div className="flex justify-end relative -top-[10px]">
+                                            <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                                        </div>
+
+                                        <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
+                                            amet,
+                                            consect adipis elit. Suspend
+                                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
+                                            eros
+                                            dolor
+                                            interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
                                     </div>
 
-                                    <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
-                                        amet,
-                                        consect adipis elit. Suspend
-                                        varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
-                                        eros
-                                        dolor
-                                        interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
+
 
                                 </div>
 
 
 
 
-                            </div>
+                                <div className=" gap-[28px]   lg:hidden">
+
+                                    <div className='flex gap-5'>
+                                        <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+
+                                        <div className="">
+                                            <div className='mt-[80px]'>
+                                                <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
+                                                <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                            </div>
+
+                                            <div className=" relative -top-[120px] left-[120px]">
+                                                <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
+                                            </div>
 
 
-                            {/* Mobile */}
 
-                            <div className=" gap-[28px]   lg:hidden">
-
-                                <div className='flex gap-5'>
-                                    <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
-
-                                    <div className="">
-                                        <div className='mt-[80px]'>
-                                            <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
-                                            <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
                                         </div>
-
-                                        <div className=" relative -top-[120px] left-[120px]">
-                                            <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-                                <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
-                                    amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
-                                </p>
-
-
-
-
-                            </div>
-
-                        </div>
-                        <div className="absolute flex lg:my-0 my-5 lg:pb-0 pb-5 justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide4"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronRight} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
-
-
-                            <a href="#slide2"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px] ">
-                                <img src={ChevronLeft} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div id="slide2" className="carousel-item relative w-full">
-                        <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
-
-                            {/* laptop */}
-                            <div className="lg:flex gap-[28px]  h-[290px] hidden">
-
-                                <img src={client1} className=" lg:w-[224px]  " alt="" />
-
-
-
-
-                                <div className="w-[438px]  mt-[20px]">
-                                    <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
-                                    <p className="text-[#fff] ">CEO at ABC Company</p>
-
-                                    <div className="flex justify-end relative -top-[10px]">
-                                        <img src={quatations} className="w-[108px] h-[82px] " alt="" />
                                     </div>
 
-                                    <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
-                                        amet,
-                                        consect adipis elit. Suspend
-                                        varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
-                                        eros
-                                        dolor
-                                        interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+                                    <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
+                                        amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
+                                    </p>
 
                                 </div>
 
 
 
 
-                            </div>
-
-
-                            {/* Mobile */}
-
-                            <div className=" gap-[28px]   lg:hidden">
-
-                                <div className='flex gap-5'>
-                                    <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
-
-                                    <div className="">
-                                        <div className='mt-[80px]'>
-                                            <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
-                                            <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
-                                        </div>
-
-                                        <div className=" relative -top-[120px] left-[120px]">
-                                            <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-                                <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
-                                    amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
-                                </p>
-
-
 
 
                             </div>
-
                         </div>
 
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className=" lg:w-[750px]">
 
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide1"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronRight} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
+                            <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
 
+                                {/* laptop */}
+                                <div className="lg:flex gap-[28px]  h-[290px] hidden">
 
-                            <a href="#slide3"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronLeft} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="slide3" className="carousel-item relative w-full">
-                        <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
-
-                            {/* laptop */}
-                            <div className="lg:flex gap-[28px]  h-[290px] hidden">
-
-                                <img src={client1} className=" lg:w-[224px]  " alt="" />
+                                    <img src={client1} className=" lg:w-[224px]  " alt="" />
 
 
 
 
-                                <div className="w-[438px]  mt-[20px]">
-                                    <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
-                                    <p className="text-[#fff] ">CEO at ABC Company</p>
+                                    <div className="w-[438px]  mt-[20px]">
+                                        <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
+                                        <p className="text-[#fff] ">CEO at ABC Company</p>
 
-                                    <div className="flex justify-end relative -top-[10px]">
-                                        <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                                        <div className="flex justify-end relative -top-[10px]">
+                                            <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                                        </div>
+
+                                        <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
+                                            amet,
+                                            consect adipis elit. Suspend
+                                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
+                                            eros
+                                            dolor
+                                            interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
                                     </div>
 
-                                    <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
-                                        amet,
-                                        consect adipis elit. Suspend
-                                        varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
-                                        eros
-                                        dolor
-                                        interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
+
 
                                 </div>
 
 
 
 
-                            </div>
+                                <div className=" gap-[28px]   lg:hidden">
+
+                                    <div className='flex gap-5'>
+                                        <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+
+                                        <div className="">
+                                            <div className='mt-[80px]'>
+                                                <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
+                                                <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                            </div>
+
+                                            <div className=" relative -top-[120px] left-[120px]">
+                                                <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
+                                            </div>
 
 
-                            {/* Mobile */}
 
-                            <div className=" gap-[28px]   lg:hidden">
-
-                                <div className='flex gap-5'>
-                                    <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
-
-                                    <div className="">
-                                        <div className='mt-[80px]'>
-                                            <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
-                                            <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
                                         </div>
-
-                                        <div className=" relative -top-[120px] left-[120px]">
-                                            <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-                                <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
-                                    amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
-                                </p>
-
-
-
-
-                            </div>
-
-                        </div>
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide2"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronRight} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
-
-
-                            <a href="#slide4"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronLeft} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
-                        </div>
-                    </div>
-
-                    <div id="slide4" className="carousel-item relative w-full">
-                        <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
-
-                            {/* laptop */}
-                            <div className="lg:flex gap-[28px]  h-[290px] hidden">
-
-                                <img src={client1} className=" lg:w-[224px]  " alt="" />
-
-
-
-
-                                <div className="w-[438px]  mt-[20px]">
-                                    <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
-                                    <p className="text-[#fff] ">CEO at ABC Company</p>
-
-                                    <div className="flex justify-end relative -top-[10px]">
-                                        <img src={quatations} className="w-[108px] h-[82px] " alt="" />
                                     </div>
 
-                                    <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
-                                        amet,
-                                        consect adipis elit. Suspend
-                                        varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
-                                        eros
-                                        dolor
-                                        interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+                                    <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
+                                        amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
+                                    </p>
 
                                 </div>
 
 
 
 
+
+
                             </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+
+                        <div className=" lg:w-[750px]">
+
+                            <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
+
+                                {/* laptop */}
+                                <div className="lg:flex gap-[28px]  h-[290px] hidden">
+
+                                    <img src={client1} className=" lg:w-[224px]  " alt="" />
 
 
-                            {/* Mobile */}
 
-                            <div className=" gap-[28px]   lg:hidden">
 
-                                <div className='flex gap-5'>
-                                    <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+                                    <div className="w-[438px]  mt-[20px]">
+                                        <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
+                                        <p className="text-[#fff] ">CEO at ABC Company</p>
 
-                                    <div className="">
-                                        <div className='mt-[80px]'>
-                                            <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
-                                            <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                        <div className="flex justify-end relative -top-[10px]">
+                                            <img src={quatations} className="w-[108px] h-[82px] " alt="" />
                                         </div>
 
-                                        <div className=" relative -top-[120px] left-[120px]">
-                                            <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
-                                        </div>
-
-
+                                        <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
+                                            amet,
+                                            consect adipis elit. Suspend
+                                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
+                                            eros
+                                            dolor
+                                            interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
 
                                     </div>
+
+
+
+
                                 </div>
 
-                                <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
-                                    amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
-                                </p>
+
+
+
+                                <div className=" gap-[28px]   lg:hidden">
+
+                                    <div className='flex gap-5'>
+                                        <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+
+                                        <div className="">
+                                            <div className='mt-[80px]'>
+                                                <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
+                                                <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                            </div>
+
+                                            <div className=" relative -top-[120px] left-[120px]">
+                                                <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
+                                        amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
+                                    </p>
+
+                                </div>
+
+
 
 
 
 
                             </div>
-
                         </div>
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide3"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronRight} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className=" lg:w-[750px]">
+
+                            <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
+
+                                {/* laptop */}
+                                <div className="lg:flex gap-[28px]  h-[290px] hidden">
+
+                                    <img src={client1} className=" lg:w-[224px]  " alt="" />
 
 
-                            <a href="#slide1"
-                                className="rounded-[50%] flex justify-center items-center RoundedButton lg:w-[60px] lg:h-[60px] w-[48px] h-[48px]">
-                                <img src={ChevronLeft} className="w-[20px] h-[20px] mx-auto" alt="" />
-                            </a>
+
+
+                                    <div className="w-[438px]  mt-[20px]">
+                                        <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
+                                        <p className="text-[#fff] ">CEO at ABC Company</p>
+
+                                        <div className="flex justify-end relative -top-[10px]">
+                                            <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                                        </div>
+
+                                        <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
+                                            amet,
+                                            consect adipis elit. Suspend
+                                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
+                                            eros
+                                            dolor
+                                            interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+
+                                <div className=" gap-[28px]   lg:hidden">
+
+                                    <div className='flex gap-5'>
+                                        <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+
+                                        <div className="">
+                                            <div className='mt-[80px]'>
+                                                <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
+                                                <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                            </div>
+
+                                            <div className=" relative -top-[120px] left-[120px]">
+                                                <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
+                                        amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
+                                    </p>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className=" lg:w-[750px]">
+
+                            <div className="bg-[#212121] p-5 lg:p-[30px] mx-auto lg:w-[750px] w-[393px] flex justify-center items-center rounded-[10px]">
+
+                                {/* laptop */}
+                                <div className="lg:flex gap-[28px]  h-[290px] hidden">
+
+                                    <img src={client1} className=" lg:w-[224px]  " alt="" />
 
 
-                </div>
 
+
+                                    <div className="w-[438px]  mt-[20px]">
+                                        <h1 className="text-white text-[24px] font-semibold">Mr. Adam smith</h1>
+                                        <p className="text-[#fff] ">CEO at ABC Company</p>
+
+                                        <div className="flex justify-end relative -top-[10px]">
+                                            <img src={quatations} className="w-[108px] h-[82px] " alt="" />
+                                        </div>
+
+                                        <p className="mt-[34px] NormalPara text-lg relative -top-[75px]">Lorem ipsum dolor sit
+                                            amet,
+                                            consect adipis elit. Suspend
+                                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,
+                                            eros
+                                            dolor
+                                            interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame</p>
+
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+
+                                <div className=" gap-[28px]   lg:hidden">
+
+                                    <div className='flex gap-5'>
+                                        <img src={client1} className=" lg:w-[224px] w-[97px] h-[125px]   " alt="" />
+
+                                        <div className="">
+                                            <div className='mt-[80px]'>
+                                                <h1 className="text-white text-lg lg:text-[24px] font-semibold">Mr. Adam smith</h1>
+                                                <p className="text-[#fff] text-[12px] ">CEO at ABC Company</p>
+                                            </div>
+
+                                            <div className=" relative -top-[120px] left-[120px]">
+                                                <img src={quatations} className="w-[45px] h-[32px] lg:w-[108px] lg:h-[82px] " alt="" />
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <p className="mt-[34px] NormalPara text-[14px]  lg:text-lg  ">Lorem ipsum dolor sit
+                                        amet,consect adipis elit. Suspend varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,eros   dolor interdum nulla, ut commodo diam libero vuere. Lorem ipsum dolor sit ame
+                                    </p>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </SwiperSlide>
+
+                </Swiper>
             </div>
+
+
+
+
+
+
+
+
+
+
+
 
             {/* View all */}
 
@@ -915,7 +1012,7 @@ const Homepage = () => {
 
 
             <div className="container mx-auto flex justify-center lg:static relative -top-[250px]">
-                <div className="rounded-[10px]  bg-[#212121] w-[393px] lg:w-[1170px] lg:px-[253px] mt-[150px] lg:py-[90px] py-[50px] px-[23px]">
+                <div className="rounded-[10px]  bg-[#212121] w-[393px] container  lg:px-[253px] mt-[150px] lg:py-[90px] py-[50px] px-[23px]">
                     <div className="lg:w-[664px] mx-auto lg:text-center">
                         <h1 className="text-[27px] lg:text-[48px] w-[287px] lg:w-auto text-center font-semibold text-[#fff]  ">Lets create your next level project together</h1>
                         <p className=" text-[14px] lg:text-[20px] text-[#fff] lg:w-[516px] mx-auto mt-[18px] lg:mt-[30px]">Build Your site for free and take  as long as you need (That’s right, on trial here)</p>
@@ -950,7 +1047,7 @@ const Homepage = () => {
 
             <footer className="container mx-auto lg:mt-[150px]">
 
-                <hr className="borDer lg:block hidden"/>
+                <hr className="borDer lg:block hidden" />
 
 
 
