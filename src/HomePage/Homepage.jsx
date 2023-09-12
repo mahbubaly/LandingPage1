@@ -28,8 +28,6 @@ import imgP2 from '../assets/Image/p2.png'
 import imgP3 from '../assets/Image/p3.png'
 import imgVector from '../assets/Image/Vector.png'
 import client1 from '../assets/Image/client1.png'
-import ChevronRight from '../assets/Image/chevron right.png'
-import ChevronLeft from '../assets/Image/chevron.left.png'
 import quatations from '../assets/Image/quationBg.png'
 import icon1 from '../assets/Image/icon1.png'
 import icon2 from '../assets/Image/icon2.png'
@@ -38,11 +36,9 @@ import icon4 from '../assets/Image/icon4.png'
 import icon5 from '../assets/Image/icon5.png'
 import groupImgBanner from '../assets/Image/groupImgBanner.png'
 import { FaBars, FaTimes } from 'react-icons/fa';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 import { Navigation } from 'swiper/modules';
 
 
@@ -128,7 +124,7 @@ const Homepage = () => {
             </header>
 
             <main>
-                <div className="container  lg:flex justify-between mx-auto mt-[40px] lg:mt-[120px] ">
+                <div className="container lg:flex justify-between mx-auto mt-[40px] lg:mt-[120px] ">
 
                     <div className="lg:w-[564px] w-[320px] absolute ">
                         <h3 className="text-[#B0F403] text-lg font-normal">make your dream with us</h3>
